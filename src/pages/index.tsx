@@ -29,7 +29,7 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
   return (
     <>
       <main className={styles.container}>
-        <h1>Hello Edu</h1>
+        <h1>Hello World!</h1>
       </main>
     </>
   );
