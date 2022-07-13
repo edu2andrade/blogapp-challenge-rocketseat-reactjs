@@ -20,7 +20,6 @@
 body{
   background: var(--gray-900);
   color: var(--gray-100);
-  font-family: 'Inter', sans-serif;
 }
 
 @media (max-width: 1080px) {
@@ -36,7 +35,7 @@ body{
 }
 
 body, input, textarea, select, button {
-  font: 400 1rem "Roboto", sans-serif;
+  font: 400 1rem "Inter", sans-serif;
 }
 
 button{
