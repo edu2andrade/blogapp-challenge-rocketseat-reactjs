@@ -12,6 +12,7 @@ import { getPrismicClient } from '../services/prismic';
 // import commonStyles from '../styles/common.module.scss';
 
 import styles from './home.module.scss';
+import Header from '../components/Header';
 
 interface Post {
   uid?: string;
@@ -60,9 +61,7 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
 
   return (
     <>
-      <header className={styles.headerContainer}>
-        <img src="/spacetraveling.svg" alt="logo" />
-      </header>
+      <Header />
       <main className={styles.mainContainer}>
         <div className={styles.contentContainer}>
           {posts.map(post => (
@@ -87,6 +86,7 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
             type="button"
             onClick={handleMorePosts}
             className={styles.loadPosts}
+            title="Carregar mais posts..."
           >
             Carregar mais posts
           </button>
@@ -100,7 +100,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient({});
   const postsResponse = await prismic.getByType('posts', {
     fetch: ['posts.title', 'posts.subtitle', 'posts.author'],
-    pageSize: 4,
+    pageSize: 2,
   });
 
   const response = postsResponse.results.map(post => {

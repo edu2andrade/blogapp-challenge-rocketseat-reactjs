@@ -1,1 +1,68 @@
-// TODO
+.banner {
+  object-fit: cover;
+  width: 100vw;
+  max-height: 25rem;
+}
+
+.mainContainer {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 5rem;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.625rem;
+    margin: 3rem 0;
+  }
+
+  .info {
+    display:flex;
+    flex-direction: row;
+    margin-top: 1.5rem;
+
+    time, p {
+      align-self: center;
+      font-size: 0.875rem;
+      margin-left: 0.5rem;
+    }
+
+    div{
+      display:flex;
+      flex-direction: row;
+
+      & + div{
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  .contentContainer {
+    margin: 4rem 0;
+
+    h2 {
+      font-size: 2.25rem;
+      margin: 4rem 0;
+    }
+
+    .postContent {
+      p {
+        font-size: 1.125rem;
+        line-height: 1.5625rem;
+      }
+
+      a {
+        text-decoration: underline;
+        font-size: 1.125rem;
+        line-height: 1.5625rem;
+        color: aqua;
+
+        transition: filter .2s;
+
+        &:hover {
+          filter: opacity(.8);
+        }
+      }
+    }
+  }
+}
