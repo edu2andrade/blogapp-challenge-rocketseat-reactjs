@@ -84,6 +84,7 @@ export default function Post({ post }: PostProps): JSX.Element {
                 <h2>{contentItem.heading}</h2>
                 <div
                   className={styles.postContent}
+                  // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{
                     __html: RichText.asHtml(contentItem.body),
                   }}
@@ -111,7 +112,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
   const { slug } = params;
   const prismic = getPrismicClient({});
   const response = await prismic.getByUID('posts', String(slug), {});
@@ -146,5 +147,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       post,
     },
+    revalidate: 60 * 5, // 5min
   };
 };
